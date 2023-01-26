@@ -29,7 +29,7 @@ addLayer("p", {
         11: {
             title: "Enrich I",
             description: "Triple point gain.",
-            cost: new Decimal(6),
+            cost: new Decimal(2),
         }
     },
 })
