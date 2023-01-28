@@ -27,9 +27,39 @@ addLayer("p", {
     layerShown(){return true},
     upgrades: {
         11: {
-            title: "Enrich I",
+            title: "The First Three",
             description: "Triple point gain.",
             cost: new Decimal(2),
+        },
+        12: {
+            title: "F and G:",
+            description: "Point gain is increased by your points.",
+            cost: new Decimal(6),
+        },
+        13: {
+            title: "Incomplete",
+            description: "Point gain is increased by your prestige points (not implemented yet).",
+            cost: new Decimal(36),
+        },
+        21: {
+            title: "???",
+            description: "???",
+            cost: new Decimal(500),
+        },
+        22: {
+            title: "???",
+            description: "???",
+            cost: new Decimal(10000),
+        },
+        23: {
+            title: "???",
+            description: "???",
+            cost: new Decimal(200000),
+        },
+        31: {
+            title: "You made it!",
+            description: "You finished the demo! Prepare for the next layer!",
+            cost: new Decimal(4000000),
         }
     },
 })
