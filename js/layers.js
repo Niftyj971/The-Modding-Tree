@@ -35,6 +35,10 @@ addLayer("p", {
             title: "F and G:",
             description: "Point gain is increased by your points.",
             cost: new Decimal(6),
+            effect() {
+                return player.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
         13: {
             title: "Incomplete",
