@@ -27,42 +27,46 @@ addLayer("p", {
     layerShown(){return true},
     upgrades: {
         11: {
-            title: "The First Three",
+            title: "Introduction",
             description: "Triple point gain.",
             cost: new Decimal(2),
         },
         12: {
-            title: "F and G:",
-            description: "Point gain is increased by your points.",
+            title: "C, D, and E",
+            description: "Point gain boosts itself.",
             cost: new Decimal(6),
             effect() {
-                return player.points.add(1).pow(0.5)
+                return player.points.add(1).pow(0.333)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
         13: {
-            title: "Incomplete",
-            description: "Point gain is increased by your prestige points (not implemented yet).",
+            title: "F and G",
+            description: "Point gain is increased by your prestige points.",
             cost: new Decimal(36),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
         21: {
-            title: "???",
-            description: "???",
+            title: "The Practice Begins",
+            description: "Point gain is increased based on time played.",
             cost: new Decimal(500),
         },
         22: {
-            title: "???",
-            description: "???",
+            title: "Prepare for the Best",
+            description: "Makes the second and third upgrades more powerful based on your prestige points.",
             cost: new Decimal(10000),
         },
         23: {
-            title: "???",
-            description: "???",
+            title: "First Trial",
+            description: "Unlocks a buyable.",
             cost: new Decimal(200000),
         },
         31: {
             title: "You made it!",
-            description: "You finished the demo! Prepare for the next layer!",
+            description: "You finished the demo! Prepare for the next layer (which unlocks in the next update)!",
             cost: new Decimal(4000000),
         }
     },

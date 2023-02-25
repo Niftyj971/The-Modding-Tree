@@ -13,7 +13,11 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0.1",
+	num: "0.1",
+	// 0.2 onwards is adding the second regular layer of the game,
+	// 1.0 is the addition of the third regular layer,
+	// 2.0 is the addition of the fourth (and so far last) regular layer,
+	// and 3.0-4.0 is the addition of the ChorDilation challenge and its unique layers.
 	name: "Basically nothing",
 }
 
@@ -22,7 +26,7 @@ let changelog = `<h1>Changelog:</h1><br>
 		- Added things.<br>
 		- Added stuff.`
 
-let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
+let winText = `Congratulations! You have reached the end and beaten this demo! \n Soon, a new layer will unlock, and your journew will truly start...`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -45,6 +49,7 @@ function getPointGen() {
 	let gain = new Decimal(1)
 	if (hasUpgrade('p', 11)) gain = gain.times(3)
 	if (hasUpgrade('p', 12)) gain = gain.times(upgradeEffect('p', 12))
+	if (hasUpgrade('p', 13)) gain = gain.times(upgradeEffect('p', 13))
 	return gain
 }
 
