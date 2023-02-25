@@ -36,7 +36,7 @@ addLayer("p", {
             description: "Point gain boosts itself.",
             cost: new Decimal(6),
             effect() {
-                return player.points.add(1).pow(0.333)
+                return player.points.add(1).pow(0.5)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
