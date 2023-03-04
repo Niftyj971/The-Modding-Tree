@@ -13,12 +13,12 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
+	num: "0.1.0B",
 	// 0.2 onwards is adding the second regular layer of the game,
 	// 1.0 is the addition of the third regular layer,
 	// 2.0 is the addition of the fourth (and so far last) regular layer,
 	// and 3.0-4.0 is the addition of the ChorDilation challenge and its unique layers.
-	name: "Basically nothing",
+	name: "20 minute tutorial",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -50,6 +50,7 @@ function getPointGen() {
 	if (hasUpgrade('p', 11)) gain = gain.times(3)
 	if (hasUpgrade('p', 12)) gain = gain.times(upgradeEffect('p', 12))
 	if (hasUpgrade('p', 13)) gain = gain.times(upgradeEffect('p', 13))
+	if (hasUpgrade('p', 21)) gain = gain.times(upgradeEffect('p', 21))
 	return gain
 }
 
@@ -63,7 +64,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("e280000000"))
+	return player.points.gte(new Decimal(1.79e308))
 }
 
 

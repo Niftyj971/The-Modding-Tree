@@ -36,7 +36,7 @@ addLayer("p", {
             description: "Point gain boosts itself.",
             cost: new Decimal(6),
             effect() {
-                return player.points.add(1).pow(0.5)
+                return player.points.add(1).pow(0.4)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
@@ -45,7 +45,7 @@ addLayer("p", {
             description: "Point gain is increased by your prestige points.",
             cost: new Decimal(36),
             effect() {
-                return player[this.layer].points.add(1).pow(0.5)
+                return player[this.layer].points.add(1).pow(0.4)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
@@ -53,6 +53,9 @@ addLayer("p", {
             title: "The Practice Begins",
             description: "Point gain is increased based on time played.",
             cost: new Decimal(500),
+            effect() {
+                return player.points.add(1).pow(time / 3)
+            }
         },
         22: {
             title: "Prepare for the Best",
@@ -68,6 +71,6 @@ addLayer("p", {
             title: "You made it!",
             description: "You finished the demo! Prepare for the next layer (which unlocks in the next update)!",
             cost: new Decimal(4000000),
-        }
+        },
     },
 })
