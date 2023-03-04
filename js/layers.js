@@ -54,7 +54,7 @@ addLayer("p", {
             description: "Point gain is increased based on time played.",
             cost: new Decimal(500),
             effect() {
-                return player.points.add(1).pow(time / 3)
+                return player.points.add(1).pow(timePlayed / 4)
             }
         },
         22: {
