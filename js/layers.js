@@ -24,11 +24,6 @@ addLayer("p", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    upgradeLayer1Total() {
-        upgTotall1 = new Decimal(1)
-        if(hasUpgrade('p', id)) upgTotall1++
-        return upgTotall1
-    },
     layerShown(){return true},
     upgrades: {
         11: {
@@ -56,11 +51,10 @@ addLayer("p", {
         },
         21: {
             title: "The Practice Begins",
-            description: "Each upgrade raises the first's effect to the ^1.2",
+            description: "Raises the second upgrade's power to the ^1.75",
             cost: new Decimal(500),
             effect() {
-                upgradeLayer1Total()
-                return player.points.add(1).pow(0.2 * upgTotall1)
+                return player.points.add(2).pow(0.3)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
