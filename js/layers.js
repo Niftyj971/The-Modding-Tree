@@ -36,7 +36,7 @@ addLayer("p", {
             description: "Point gain boosts itself.",
             cost: new Decimal(6),
             effect() {
-                return player.points.add(1).pow(0.4)
+                return player.points.add(1).pow(0.5)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
@@ -45,13 +45,13 @@ addLayer("p", {
             description: "Point gain is increased by your prestige points.",
             cost: new Decimal(36),
             effect() {
-                return player[this.layer].points.add(1).pow(0.4)
+                return player[this.layer].points.add(1).pow(0.5)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
         21: {
             title: "The Practice Begins",
-            description: "Raises the second upgrade's power to the ^1.75",
+            description: "Raises the second upgrade's power to the ^1.3",
             cost: new Decimal(500),
             effect() {
                 return player.points.add(2).pow(0.3)
@@ -62,6 +62,10 @@ addLayer("p", {
             title: "Prepare for the Best",
             description: "Makes the second and third upgrades more powerful based on your prestige points.",
             cost: new Decimal(10000),
+            effect() {
+                return player.points.add(2).pow(0.4)
+                return player[this.layer].points.add(1).pow(0.4)
+            }
         },
         23: {
             title: "First Trial",
