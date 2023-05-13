@@ -51,21 +51,21 @@ addLayer("p", {
         },
         21: {
             title: "The Practice Begins",
-            description: "Raises the second upgrade's power to the ^1.3",
+            description: "Raises the second upgrade's power to the ^1.7",
             cost: new Decimal(500),
             effect() {
-                return player.points.add(2).pow(0.3)
+                return player.points.add(2).pow(0.7)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
         22: {
             title: "Prepare for the Best",
-            description: "Makes the second and third upgrades more powerful based on your prestige points.",
+            description: "Makes the third upgrade more powerful based on your prestige points.",
             cost: new Decimal(10000),
             effect() {
-                return player.points.add(2).pow(0.4)
                 return player[this.layer].points.add(1).pow(0.4)
-            }
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
         23: {
             title: "First Trial",
@@ -76,6 +76,13 @@ addLayer("p", {
             title: "You made it!",
             description: "You finished the demo! Prepare for the next layer (which unlocks in the next update)!",
             cost: new Decimal(4000000),
+        },
+    },
+    buyables: {
+        11: {
+            title: "Your First True Piece",
+            description: "Multiplies the first upgrade's effect.",
+            cost: new Decimal(400000)
         },
     },
 })
