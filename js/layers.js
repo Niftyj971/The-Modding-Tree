@@ -81,8 +81,34 @@ addLayer("p", {
     buyables: {
         11: {
             title: "Your First True Piece",
-            description: "Multiplies the first upgrade's effect.",
-            cost: new Decimal(400000)
+            cost(){
+                let amtl1 = getBuyableAmount("p", 11)
+                let exp = amtl1.div(tmp.p.buyables[11].expDiv).plus(1)
+                return amtl1.pow(exp).pow10()
+            },
+            expDiv(){
+                let retl1 = new Decimal(20)
+                return retl1
+            },
+            unlocked(){
+                return hasUpgrade("p", 23)
+            },
+            canAfford(){
+                return player.points,gte(tmp.p.buyables[11].cost)
+            },
+            buy(){
+                if (!this.canAfford()) return
+                let datal1 = player.p
+                datal1.buyables[11] = datal1.buyables[11].plus(1)
+                datal1.points = datal1.points.sub(tmp.p.buyables[11].cost)
+            },
+            base(){
+                let retll1 = player.points.plus(10).log10()
+                return retll1
+            },
+            effect(){
+                return tmp.p.buyables[11].base.pow(player.p.buyables[11])
+            },
         },
     },
 })
