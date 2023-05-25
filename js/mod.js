@@ -22,8 +22,10 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
+	<h3>v0.0.6a</h3><br>
+		- Added the first layer of the game.<br>
+		- Added 6 upgrades.<br>
+		- Added a buyable.<br>
 		- Added stuff.`
 
 let winText = `Congratulations! You have reached the end and beaten this demo! \n Soon, a new layer will unlock, and your journew will truly start...`
