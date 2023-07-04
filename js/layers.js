@@ -30,6 +30,9 @@ addLayer("p", {
             title: "Introduction",
             description: "Triple point gain.",
             cost: new Decimal(2),
+            effect() {
+                return player.points.mult(3)
+            }
         },
         12: {
             title: "C, D, and E",
