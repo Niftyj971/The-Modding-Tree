@@ -8,7 +8,7 @@ let modInfo = {
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
-	offlineLimit: 1,  // In hours
+	offlineLimit: 0.1,  // In hours
 }
 
 // Set your version in num and name
@@ -17,8 +17,12 @@ let VERSION = {
 	// 0.2 onwards is adding the second regular layer of the game,
 	// 1.0 is the addition of the third regular layer,
 	// 2.0 is the addition of the fourth (and so far last) regular layer,
-	// and 3.0-4.0 is the addition of the ChorDilation challenge and its unique layers.
+	// and 3.0-4.0 is the addition of the major side challenge and its unique layers.
 	name: "20 minute tutorial",
+}
+
+let oldVersion = {
+	num: "0.0.x",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -85,5 +89,9 @@ function maxTickLength() {
 
 // Use this if you need to undo inflation from an older version. If the version is older than the version that fixed the issue,
 // you can cap their current resources with this.
-function fixOldSave(oldVersion){
+function fixOldSave(oldVersion) {
+	if (VERSION.num != oldVersion.num)
+	{
+		player.points = new Decimal(10)
+	}
 }
